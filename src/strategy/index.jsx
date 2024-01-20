@@ -1,7 +1,19 @@
 import React, { useState } from "react";
 import './strategy.css'
 
+function useInput (){
+    const [value , setValue] = useState('')
+    const onChange = e => {
+        setValue(e.target.value)
+    }
+    return {
+        value,
+        onChange,
+    }
+}
+
 function AddStratrgyForm(addStrategy){
+    //const raids =useInput();
     const [raids,setRaids] =useState('')
     const [players,setPlayers] =useState('')
     const [difficulty,setDifficulty] =useState('')
@@ -27,7 +39,8 @@ function AddStratrgyForm(addStrategy){
     }
       
     return <form>
-        <input type="text" placeholder="输入副本名" value={raids} onChange={e=>setRaids(e.target.value)}/>
+         {/* <input type="text" placeholder="输入副本名" {...raids}/> */}
+        <input type="text" placeholder="输入副本名" value={raids} onChange={e=>setRaids(e.target.value)}/>       
         <input type="text" placeholder="输入副本人数" value={players} onChange={e=>setPlayers(e.target.value)}/>
         <input type="text" placeholder="输入副本难度" value={difficulty} onChange={e=>setDifficulty(e.target.value)}/>
         <input type="text" placeholder="输入副本攻略" value={strategies} onChange={e=>setStrategies(e.target.value)}/>
