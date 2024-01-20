@@ -1,0 +1,13 @@
+.strategyContent{
+    background-color: #fff;
+    height: 100%;
+    width: 600px;
+    display: flex;
+    align-items: center;
+}
+.strategyItems{
+    
+    height: 100%;
+    width: 100%;
+    padding: 0 20px;
+}
