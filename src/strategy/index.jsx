@@ -12,8 +12,9 @@ function useInput (){
     }
 }
 
-function AddStratrgyForm(addStrategy){
+function AddStratrgyForm({addStrategy}){
     //const raids =useInput();
+    console.log({addStrategy})
     const [raids,setRaids] =useState('')
     const [players,setPlayers] =useState('')
     const [difficulty,setDifficulty] =useState('')
@@ -22,15 +23,8 @@ function AddStratrgyForm(addStrategy){
     const handleSubmit = e =>{
         e.preventDefault();
         if(!raids) return 
-        console.log(raids)
-        console.log(players)
-        console.log(difficulty)
-        console.log(strategies)
-        console.log(drop)
         
-        const arr1 =[raids,players,difficulty,strategies,drop]
-        console.log(arr1)
-        //addStrategy(raids,players,difficulty,strategies,drop)        
+        addStrategy({raids,players,difficulty,strategies,drop})        
         setRaids('')
         setPlayers('')
         setDifficulty('')
@@ -80,8 +74,8 @@ function Strategy(){
                <p>副本掉落：{strategyMessage[index].drop}</p>
                </div>
     })
-    const addStrategy = (text) => {        
-        const newItems = [...strategyMessage,{text}]
+    const addStrategy = (value) => {        
+        const newItems = [...strategyMessage,value]
         setStrategyMessage(newItems)        
     }
     

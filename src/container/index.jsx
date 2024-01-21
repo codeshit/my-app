@@ -12,11 +12,11 @@ function Todo({todo,index,completeTodos,removeTodos}){
                 </li>
             </ul>         
     }
-function FilterTodo(setFilter){
+function FilterTodo({getFilterTodos}){
     return <div>
-        <button onClick={()=>setFilter('all')}>全部</button>
-        <button onClick={()=>setFilter('active')}>已完成</button>
-        <button onClick={()=>setFilter('completed')}>未完成</button>
+        <button onClick={()=>getFilterTodos('all')}>全部</button>
+        <button onClick={()=>getFilterTodos('active')}>已完成</button>
+        <button onClick={()=>getFilterTodos('completed')}>未完成</button>
     </div>
 }
 function AddTodoForm({addTodos}){
@@ -75,7 +75,7 @@ function Container (){
         <div className="todoList">
             {todosList}           
         </div>
-        <FilterTodo setFilter={setFilter}></FilterTodo>
+        <FilterTodo getFilterTodos={getFilterTodos}></FilterTodo>
         
     </div>
 }
